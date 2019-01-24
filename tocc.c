@@ -85,7 +85,7 @@ Node *parse(Vector *v) {
 }
 
 int main(int argc, char **argv) {
-    if (argc == 1 | argc > 3) {
+    if (argc == 1 || argc > 3) {
         fprintf(stderr, "引数の個数が正しくありません\n");
         return 1;
     }
@@ -100,9 +100,6 @@ int main(int argc, char **argv) {
         Token *t = tokens->data[0];
         printf("first token ty: %d\n", (t->ty));
         printf("first token val: %d\n", (t->val));
-        //printf("first token consume: %d\n", consume(t, TK_NUM));
-        parse(tokens);
-        printf("done\n");
         return 0;
     }
 
