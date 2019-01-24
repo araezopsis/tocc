@@ -5,6 +5,16 @@
 #include <string.h>
 
 
+// 可変長ベクタの構造体
+// len == capacityのときにバッファが一杯
+typedef struct {
+    void **data;
+    int capacity;
+    int len;
+} Vector;
+
+Vector *new_vector(void);
+void vec_push(Vector *vec, void *elem);
 
 
 // トークンの型を表す値
