@@ -8,6 +8,7 @@ tocc: $(OBJS)
 $(OBJS): tocc.h
 
 test: tocc
+	./tocc -test
 	./test.sh
 
 clean:

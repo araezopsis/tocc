@@ -25,6 +25,21 @@ void expect(int line, int expected, int actual) {
     exit(1);
 }
 
+void runtest() {
+    Vector *vec = new_vector();
+    expect(__LINE__, 0, vec->len);
+
+    for (int i = 0; i < 100; i++)
+        vec_push(vec, (void *)i);
+
+    expect(__LINE__, 100, vec->len);
+    expect(__LINE__, 0, (int)vec->data[0]);
+    expect(__LINE__, 50, (int)vec->data[50]);
+    expect(__LINE__, 99, (int)vec->data[99]);
+
+    printf("OK\n");
+}
+
 // トークナイザ
 
 // トークナイズした結果のトークン列はこの配列に保存する。
@@ -155,6 +170,11 @@ int main(int argc, char **argv) {
     if (argc != 2) {
         fprintf(stderr, "引数の個数が正しくありません\n");
         return 1;
+    }
+
+    if (argc ==2 && !strcmp(argv[1], "-test")) {
+        runtest();
+        return 0;
     }
 
     // トークナイズしてパースする
