@@ -13,6 +13,7 @@ typedef struct {
     int len;
 } Vector;
 
+void error(char *fmt, ...);
 Vector *new_vector(void);
 void vec_push(Vector *vec, void *elem);
 
@@ -29,8 +30,6 @@ typedef struct {
     int val;      // tyがTK_NUMの場合，その数値
     char *input;  // トークン文字列（エラーメッセージ用）
 } Token;
-
-
 
 
 enum {
