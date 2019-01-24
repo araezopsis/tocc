@@ -44,9 +44,14 @@ typedef struct Node {
     int val;          // tyがND_NUMの場合のみ使う
 } Node;
 
+
+Node *new_node(int ty, Node *lhs, Node *rhs);
+Node *new_node_num(int val);
+int consume(int ty);
 Node *add();
 Node *mul();
 Node *term();
+Node *parse(Vector *v);
 
 
 void gen(Node *node);
