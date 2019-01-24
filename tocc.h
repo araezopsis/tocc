@@ -48,3 +48,11 @@ typedef struct Node {
 
 
 void gen(Node *node);
+
+
+
+void expect(int line, int expected, int actual);
+void runtest();
+
+
+
