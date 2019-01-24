@@ -3,6 +3,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+
+// トークナイザ
+
 // トークンの型を表す値
 enum {
     TK_NUM = 256, // 整数トークン
@@ -38,6 +41,7 @@ void tokenize(char *p) {
             continue;
         }
 
+        // 数
         if (isdigit(*p)) {
             tokens[i].ty = TK_NUM;
             tokens[i].input = p;
