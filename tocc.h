@@ -56,6 +56,15 @@ Node *parse(Vector *v);
 
 void gen(Node *node);
 
+// マップ型
+typedef struct {
+    Vector *keys;
+    Vector *vals;
+} Map;
+
+Map *new_map();
+void map_put(Map *map, char *key, void *val);
+void *map_get(Map *map, char *key);
 
 
 void expect(int line, int expected, int actual);
