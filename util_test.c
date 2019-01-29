@@ -7,7 +7,8 @@ void expect(int line, int expected, int actual) {
     exit(1);
 }
 
-void runtest() {
+
+void test_vector() {
     Vector *vec = new_vector();
     expect(__LINE__, 0, vec->len);
 
@@ -18,7 +19,10 @@ void runtest() {
     expect(__LINE__, 0, (int)vec->data[0]);
     expect(__LINE__, 50, (int)vec->data[50]);
     expect(__LINE__, 99, (int)vec->data[99]);
+}
 
+void runtest() {
+    test_vector();
     printf("OK\n");
 }
 
